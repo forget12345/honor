@@ -7,7 +7,6 @@
 <title>青海大学昆仑学院荣誉墙</title>
 
 <!-- Google fonts -->
-<link href='http:///css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
 
 <!-- font awesome -->
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -28,6 +27,7 @@
 
 
 <link rel="stylesheet" href="assets/style.css">
+
 
 </head>
 
@@ -339,7 +339,7 @@ About Starts
     <div class="carousel-inner">  
       <div class="item active animated bounceInRight row">
       <div  class="col-xs-10">
-      提交个人信息以及获奖证件到现教中心或1061622246@qq.com<br>格式：<br>1.获奖等级<br>2.获奖时间<br>3.授奖单位<br>4.所属类型：院级单位获奖、学生组织及学生团体获奖、学生个人奖及小型团队获奖<br>获奖组织名或获奖人
+      <p>提交个人信息以及获奖证件到现教中心或1061622246@qq.com<br>格式：<br>1.获奖等级<br>2.获奖时间<br>3.授奖单位<br>4.所属类型：院级单位获奖、学生组织及学生团体获奖、学生个人奖及小型团队获奖<br>5.获奖组织名或获奖人<br>6.证明老师或者单位</P>
 
 
 
@@ -365,7 +365,7 @@ About Starts
  
 	<div class=" col-sm-3 col-xs-6">
 	<figure class="effect-chico">
-        <img src="images/team/8.jpg" alt="img01" class="img-responsive" />
+        <img src="images/team/8.jpg" alt="img01" class="img-responsive" class="lazy"   />
         <figcaption>
             <p><b>姓名</b><br>个人介绍<br><br><a href="#"><i class="fa fa-qq"></i></a></p>            
         </figcaption>
@@ -462,6 +462,33 @@ Copyright 2017 QHDXKLXYZHXY. All rights reserved. <a href="https://post.mp.qq.co
 
 <!-- custom script -->
 <script src="assets/script.js"></script>
+  
+//滚动加载图片 已解决图片加载慢的
+  <script type="text/javascript">
+      var temp = -1;//用来判断是否是向下滚动（向上滚动就不需要判断延迟加载图片了） 
+      window.onscroll = function() { 
+      var imgElements = document.getElementsByTagName("img"); 
+      var lazyImgArr = new Array(); 
+      var j = 0; 
+      for(var i=0; i<imgElements.length; i++) { 
+       if(imgElements[i].className == "lazy"){ 
+        lazyImgArr[j++] = imgElements[i]; 
+       } 
+      } 
+              var scrollHeight = document.body.scrollTop;//滚动的高度 
+      var bodyHeight = document.body.offsetHeight;//body（页面）可见区域的总高度 
+      if(temp < scrollHeight) {//为true表示是向下滚动，否则是向上滚动，不需要执行动作。 
+       for(var k=0; k<lazyImgArr.length; k++) { 
+       var imgTop = lazyImgArr[k].offsetTop;//1305（图片纵坐标） 
+       if((imgTop - scrollHeight) <= bodyHeight) { 
+        lazyImgArr[k].src = lazyImgArr[k].alt; 
+        lazyImgArr[k].className = "notlazy"
+               } 
+      } 
+      temp = scrollHeight; 
+     } 
+    }; 
+</script> 
 
 </body>
 </html>
